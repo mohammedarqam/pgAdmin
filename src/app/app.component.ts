@@ -19,7 +19,8 @@ export class MyApp {
     this.initializeApp();
 
     this.pages = [
-      { title: 'Home', component: HomePage, icon: "home" },
+      { title: 'Home', component: "HomePage", icon: "home" },
+      { title: 'Users', component: "UsersPage", icon: "ios-people" },
 
 
     ];
@@ -42,12 +43,12 @@ export class MyApp {
   }
 
   signOut() {
-/*    firebase.auth().signOut().then(() => {
-      this.nav.setRoot(MainLoginPage);
+    firebase.auth().signOut().then(() => {
+      this.nav.setRoot("LoginPage");
     }).catch((error) => {
       console.log(error.message);
     });
-  */
+
  this.nav.setRoot("LoginPage");
  
 }
