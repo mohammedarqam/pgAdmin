@@ -10,7 +10,7 @@
 
 <ion-content padding>
 
-<ion-list no-lines>
+<ion-list>
       <ion-item>
         <h2 item-end>Number of Authorities : </h2>
         <h2 class="heads" item-end>{{totUsers}}</h2>
@@ -18,8 +18,13 @@
 
 
 
-      <ion-item *ngFor="let user of users" navPush="UserDetailsPage" [navParams]='{user : user}'>
-    <h2>{{user.Authority}}</h2>
+      <ion-item *ngFor="let autho of users" >
+    <h2 item-start>{{autho.Authority}}</h2>
+      <ion-buttons item-end>
+        <button ion-button color="danger" (click)="deleteAuth(autho)" icon-only >
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-item>
 </ion-list>
 

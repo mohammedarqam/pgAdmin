@@ -24,8 +24,15 @@ save(){
     content: 'Please wait...'
   });
   loading.present();
-  firebase.database().ref("Authorities").push({Name : this.Name} ).then(()=>{
+  firebase.database().ref("Authorities").push({Authority : this.Name} ).then(()=>{
     this.navCtrl.setRoot("AuthoritiesPage");
+  }).then(()=>{
+    loading.dismiss();
   })
 }
+
+capsName(Name){
+  this.Name = Name.toUpperCase();
+}
+
 }

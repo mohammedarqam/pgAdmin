@@ -18,8 +18,16 @@
 
 
 
-      <ion-item *ngFor="let user of users" navPush="UserDetailsPage" [navParams]='{user : user}'>
-    <h2>{{user.Name}}</h2>
-  </ion-item>
+      <ion-item *ngFor="let user of users" >
+    <h2 item-start >{{user.Name}}</h2>
+    <ion-buttons item-end>
+      <button ion-button color="secondary" navPush="ComplaintDetailsPage" [navParams]='{user : user}' icon-only >
+        <ion-icon name="eye"></ion-icon>
+      </button>
+      <button ion-button color="danger" (click)="deleteAuth(user)" icon-only >
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+</ion-item>
 </ion-list>
 </ion-content>

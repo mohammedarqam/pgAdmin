@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
+import * as firebase from 'firebase';
 
-/**
- * Generated class for the UserDetailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
+
+
 
 @IonicPage()
 @Component({
@@ -15,11 +13,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class UserDetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  user = this.navParams.get('user');
+
+  constructor(
+  public navCtrl: NavController,
+  public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UserDetailsPage');
-  }
+
+
+
+
+
 
 }

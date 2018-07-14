@@ -8,7 +8,7 @@
 
 <ion-content padding>
   <ion-item no-lines class="content">
-      <h1 class="title">Add Function Hall</h1>
+      <h1 class="title">Add Authority</h1>
   </ion-item>
   
 <ion-card>
@@ -21,13 +21,13 @@
   <ion-item>
     <ion-label stacked color="primary" >
       <p ion-text color="danger" >*</p>
-      Function Hall Name</ion-label>
-    <ion-input type="text"  (ionChange)="capsName(name)" autofocus [(ngModel)]="name"></ion-input>
+     Authority Name</ion-label>
+    <ion-input type="text"  (ionChange)="capsName(Name)" autofocus [(ngModel)]="Name"></ion-input>
   </ion-item>
   </ion-row>
 
   <ion-row>
-    <button ion-button color="primary" [disabled]="!name" block (click)="save()" >Save and Upload Images</button>
+    <button ion-button color="primary" [disabled]="!Name"  (click)="save()" >Add</button>
   </ion-row>
 
 </ion-grid>

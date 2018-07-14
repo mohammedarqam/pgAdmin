@@ -11,48 +11,54 @@ import * as firebase from 'firebase';
 })
 export class HomePage {
 
-//  sampleRef = firebase.database().ref("Samples/");
-  public samples: Array<any> = [];
-  totSamples: number = 0;
+  compRef = firebase.database().ref("Complaints/");
+  totComp: number = 0;
+
+  authRef = firebase.database().ref("Authorities/");
+  totAuth: number = 0;
+
+  contRef = firebase.database().ref("Contact Us/");
+  totCont: number = 0;
+
+  userRef = firebase.database().ref("Users/");
+  totUser: number = 0;
 
   constructor(
   public navCtrl: NavController,
-  public toastCtrl : ToastController,
   public loadingCtrl : LoadingController,
-  public alertCtrl : AlertController,
   private menuCtrl : MenuController) {
     this.menuCtrl.enable(true);
   }
 
   ionViewDidEnter() {
+    this.getNumbers();
   }
-
-
-/*  sampleFunction(){
+  
+  getNumbers(){
+    //Loading
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
     loading.present();
-    this.sampleRef.once('value', itemSnapshot => {
-      this.samples = [];
-      itemSnapshot.forEach(itemSnap => {
-        this.samples.push(itemSnap.val());
-        this.totSamples = this.samples.length;
-        return false;
-      });
+  
+    this.authRef.once('value',itemSnapshot=>{
+      this.totAuth = itemSnapshot.numChildren();
     });
-    loading.dismiss();
-  }
-*/
-  presentToast(msg) {
-    let toast = this.toastCtrl.create({
-      message: msg,
-      duration: 4000,
-      showCloseButton: false,
+
+    this.contRef.once('value',itemSnapshot=>{
+      this.totCont = itemSnapshot.numChildren();
     });
-    toast.present();
+    this.userRef.once('value',itemSnapshot=>{
+      this.totUser = itemSnapshot.numChildren();
+    });
 
+    //getComplaints
+    this.compRef.once('value',itemSnapshot=>{
+      this.totComp = itemSnapshot.numChildren();
+    }).then(()=>{
+      loading.dismiss();
+    }) ;
+    
 
-  }
-
+}
 }
