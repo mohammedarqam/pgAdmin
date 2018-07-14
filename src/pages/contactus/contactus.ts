@@ -3,14 +3,15 @@ import { NavController, NavParams, LoadingController, IonicPage } from 'ionic-an
 import * as firebase from 'firebase';
 
 
+
 @IonicPage()
 @Component({
-  selector: 'page-users',
-  templateUrl: 'users.html',
+  selector: 'page-contactus',
+  templateUrl: 'contactus.html',
 })
-export class UsersPage {
+export class ContactusPage {
 
-  userRef = firebase.database().ref("Users/");
+  userRef = firebase.database().ref("Contact Us/");
   public users: Array<any> = [];
   totUsers: number = 0;
 

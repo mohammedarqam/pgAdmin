@@ -3,14 +3,15 @@ import { NavController, NavParams, LoadingController, IonicPage } from 'ionic-an
 import * as firebase from 'firebase';
 
 
+
 @IonicPage()
 @Component({
-  selector: 'page-users',
-  templateUrl: 'users.html',
+  selector: 'page-authorities',
+  templateUrl: 'authorities.html',
 })
-export class UsersPage {
+export class AuthoritiesPage {
 
-  userRef = firebase.database().ref("Users/");
+  userRef = firebase.database().ref("Authorities/");
   public users: Array<any> = [];
   totUsers: number = 0;
 
@@ -37,5 +38,10 @@ export class UsersPage {
       loading.dismiss();
     }) ;
   }
+
+newAuth(){
+  this.navCtrl.push("AddAuthoritiesPage");
+}
+
 
 }

@@ -21,6 +21,9 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: "HomePage", icon: "home" },
       { title: 'Users', component: "UsersPage", icon: "ios-people" },
+      { title: 'Complaints', component: "ComplaintsPage", icon: "ios-people" },
+      { title: 'Authorities', component: "AuthoritiesPage", icon: "ios-people" },
+      { title: 'Contact Us', component: "ContactusPage", icon: "ios-people" },
 
 
     ];
